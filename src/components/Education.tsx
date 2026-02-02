@@ -18,6 +18,7 @@ const Education = () => {
       icon: GraduationCap,
       title: "Bachelor's Degree",
       institution: "National Polytechnic University of Armenia",
+      // Information Technology
       period: "2021 – 2025",
       type: "Academic",
     },

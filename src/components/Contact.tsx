@@ -89,9 +89,9 @@ const Contact = () => {
 
   const contactLinks = [
     { icon: Mail, label: "Email", value: "sevak.badalyan.01@gmail.com", href: "mailto:sevak.badalyan.01@gmail.com" },
-    { icon: Github, label: "GitHub", value: "github.com/Sevak-Badalyan", href: "https://github.com/Sevak-Badalyan" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/sevak-badalyan", href: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/" },
-    { icon: MapPin, label: "Location", value: "Yerevan, Armenia", href: "#" },
+    { icon: Github, label: "GitHub", value: "Sevak Badalyan", href: "https://github.com/Sevak-Badalyan" },
+    { icon: Linkedin, label: "LinkedIn", value: "Sevak Badalyan", href: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/" },
+    { icon: MapPin, label: "Location", value: "Yerevan, Armenia",  },
   ];
 
   return (
