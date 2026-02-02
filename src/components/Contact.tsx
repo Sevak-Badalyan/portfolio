@@ -4,8 +4,14 @@ import { Mail, Github, Linkedin, Send, MapPin, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
-const BACKEND_URL = import.meta.env.VITE_CONTACT_API_URL || "";
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+const AUTOREPLY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || "";
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Contact = () => {
   const ref = useRef(null);
@@ -13,30 +19,67 @@ const Contact = () => {
   const { toast } = useToast();
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [touched, setTouched] = useState<{ name?: boolean; email?: boolean; message?: boolean }>({});
   const [sending, setSending] = useState(false);
+
+  const validate = (fields = form) => {
+    const errs: typeof errors = {};
+    if (!fields.name.trim()) errs.name = "Name is required";
+    if (!fields.email.trim()) errs.email = "Email is required";
+    else if (!emailRegex.test(fields.email)) errs.email = "Invalid email address";
+    if (!fields.message.trim()) errs.message = "Message is required";
+    else if (fields.message.trim().length < 10) errs.message = "Message must be at least 10 characters";
+    return errs;
+  };
+
+  const isValid = form.name.trim() && emailRegex.test(form.email) && form.message.trim().length >= 10;
+
+  const handleBlur = (field: keyof typeof form) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    setErrors(validate());
+  };
+
+  const handleChange = (field: keyof typeof form, value: string) => {
+    const updated = { ...form, [field]: value };
+    setForm(updated);
+    if (touched[field]) setErrors(validate(updated));
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    const errs = validate();
+    setErrors(errs);
+    setTouched({ name: true, email: true, message: true });
+    if (Object.keys(errs).length > 0) return;
 
-    if (!BACKEND_URL) {
-      // Fallback: open mailto with pre-filled data
-      const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
-      const body = encodeURIComponent(`From: ${form.name} (${form.email})\n\n${form.message}`);
-      window.open(`mailto:sevak.badalyan.01@gmail.com?subject=${subject}&body=${body}`);
-      toast({ title: "Opening email client", description: "Your default email app should open shortly." });
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      toast({ title: "Error", description: "Email service is not configured.", variant: "destructive" });
       return;
     }
 
     setSending(true);
     try {
-      const res = await fetch(`${BACKEND_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Failed to send");
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+        to_email: "sevak.badalyan.01@gmail.com",
+      }, PUBLIC_KEY);
+
+      // Send auto-reply to the user (don't block on failure)
+      if (AUTOREPLY_TEMPLATE_ID) {
+        emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          to_email: form.email,
+        }, PUBLIC_KEY).catch(() => {});
+      }
       toast({ title: "Message sent!", description: "Thanks for reaching out. I'll get back to you soon." });
       setForm({ name: "", email: "", message: "" });
+      setTouched({});
+      setErrors({});
     } catch {
       toast({ title: "Error", description: "Failed to send message. Please try again.", variant: "destructive" });
     } finally {
@@ -46,8 +89,8 @@ const Contact = () => {
 
   const contactLinks = [
     { icon: Mail, label: "Email", value: "sevak.badalyan.01@gmail.com", href: "mailto:sevak.badalyan.01@gmail.com" },
-    { icon: Github, label: "GitHub", value: "github.com/sevak-badalyan", href: "https://github.com" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/sevak-badalyan", href: "https://linkedin.com/in/sevak-badalyan" },
+    { icon: Github, label: "GitHub", value: "github.com/Sevak-Badalyan", href: "https://github.com/Sevak-Badalyan" },
+    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/sevak-badalyan", href: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/" },
     { icon: MapPin, label: "Location", value: "Yerevan, Armenia", href: "#" },
   ];
 
@@ -90,10 +133,14 @@ const Contact = () => {
                 <Input
                   id="name"
                   placeholder="Your name"
-                  required
                   value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  onBlur={() => handleBlur("name")}
+                  className={touched.name && errors.name ? "border-destructive" : ""}
                 />
+                {touched.name && errors.name && (
+                  <p className="text-xs text-destructive mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-1.5 text-muted-foreground">Email</label>
@@ -101,10 +148,14 @@ const Contact = () => {
                   id="email"
                   type="email"
                   placeholder="your@email.com"
-                  required
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  onBlur={() => handleBlur("email")}
+                  className={touched.email && errors.email ? "border-destructive" : ""}
                 />
+                {touched.email && errors.email && (
+                  <p className="text-xs text-destructive mt-1">{errors.email}</p>
+                )}
               </div>
             </div>
             <div>
@@ -113,16 +164,20 @@ const Contact = () => {
                 id="message"
                 placeholder="Your message..."
                 rows={5}
-                required
                 value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                onChange={(e) => handleChange("message", e.target.value)}
+                onBlur={() => handleBlur("message")}
+                className={touched.message && errors.message ? "border-destructive" : ""}
               />
+              {touched.message && errors.message && (
+                <p className="text-xs text-destructive mt-1">{errors.message}</p>
+              )}
             </div>
             <div className="text-center pt-2">
               <button
                 type="submit"
-                disabled={sending}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-all glow-primary disabled:opacity-50"
+                disabled={!isValid || sending}
+                className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-all glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                 {sending ? "Sending..." : "Send Message"}
@@ -141,6 +196,8 @@ const Contact = () => {
               <motion.a
                 key={link.label}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 * i + 0.4, duration: 0.4 }}

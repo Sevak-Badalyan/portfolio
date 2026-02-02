@@ -3,9 +3,9 @@ import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Sevak-Badalyan", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:sevak.badalyan.01@gmail.com", label: "Email" },
   ];
 
   return (
@@ -24,6 +24,8 @@ const Footer = () => {
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Icon className="w-5 h-5" />

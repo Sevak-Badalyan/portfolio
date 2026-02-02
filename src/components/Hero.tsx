@@ -120,14 +120,16 @@ const Hero = () => {
             className="flex items-center justify-center gap-6 mb-16"
           >
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com/in/sevak-badalyan", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/Sevak-Badalyan", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/", label: "LinkedIn" },
               { icon: Mail, href: "mailto:sevak.badalyan.01@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full glass glass-hover transition-all duration-300 hover:glow-primary group"
               >
                 <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />

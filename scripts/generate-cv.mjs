@@ -340,7 +340,7 @@ const html = `<!DOCTYPE html>
       <span class="contact-item"><span class="dot"></span> Armenia, Yerevan</span>
       <span class="contact-item"><span class="dot"></span> <a href="mailto:sevak.badalyan.01@gmail.com">sevak.badalyan.01@gmail.com</a></span>
       <span class="contact-item"><span class="dot"></span> +(374)-55-999-325</span>
-      <span class="contact-item"><span class="dot"></span> <a href="https://linkedin.com/in/sevak-badalyan">linkedin.com/in/sevak-badalyan</a></span>
+      <span class="contact-item"><span class="dot"></span> <a href="https://www.linkedin.com/in/sevak-badalyan-4045032b0/">linkedin.com/in/sevak-badalyan</a></span>
     </div>
   </div>
 
@@ -417,24 +417,24 @@ const html = `<!DOCTYPE html>
             <span class="project-title">PowerTrade</span>
             <span class="project-type">Professional</span>
           </div>
-          <div class="project-subtitle">Real-Time Communication & Management Platform — powertrade.am</div>
-          <div class="project-desc">Full-stack real-time communication platform featuring high-performance architecture for instant messaging, email services, and location-based utilities with modern data visualization.</div>
+          <div class="project-subtitle">Energy Trading & Supply Platform — powertrade.am</div>
+          <div class="project-desc">Backend infrastructure for a specialized energy trading platform enabling businesses to secure reliable and affordable electricity. Manages energy data, automated billing, and real-time market transparency.</div>
           <ul class="project-highlights">
-            <li>Real-time chat with Socket.io</li>
-            <li>Secure JWT & Bcrypt authentication</li>
-            <li>Interactive charts (Recharts, ApexCharts)</li>
-            <li>SendGrid, Twilio, Vonage integrations</li>
-            <li>Map integrations with Leaflet</li>
-            <li>Zustand state management</li>
+            <li>Energy data management APIs with Node.js & TypeScript</li>
+            <li>Real-time market pricing via Socket.io</li>
+            <li>Automated billing with SendGrid & Twilio</li>
+            <li>Secure JWT & RBAC authentication</li>
+            <li>Dual-database: MongoDB + Supabase (PostgreSQL)</li>
+            <li>Document management with Multer & Handlebars</li>
           </ul>
           <div class="tech-tags">
-            <span class="tech-tag">React 19</span>
             <span class="tech-tag">Node.js</span>
             <span class="tech-tag">TypeScript</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Supabase</span>
             <span class="tech-tag">Socket.io</span>
-            <span class="tech-tag">Leaflet</span>
+            <span class="tech-tag">SendGrid</span>
+            <span class="tech-tag">JWT</span>
           </div>
         </div>
 
