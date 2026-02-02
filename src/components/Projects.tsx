@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, ArrowRight, Download, Smartphone } from "lucide-react";
+import { ExternalLink, ArrowRight, Download, Smartphone, Github } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -103,7 +103,10 @@ const Projects = () => {
       tech: ["React.js", "Node.js", "PostgreSQL", "Socket.io"],
       type: "Professional",
       company: null,
-      links: {},
+      links: {
+        githubFront: "https://github.com/Sevak-Badalyan/winku-front",
+        githubBack: "https://github.com/Sevak-Badalyan/winku-back",
+      },
     },
   ];
 
@@ -190,6 +193,16 @@ const Projects = () => {
                     {project.links?.live && (
                       <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg glass glass-hover hover:glow-primary transition-all" title="Visit site">
                         <ExternalLink className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {project.links?.githubFront && (
+                      <a href={project.links.githubFront} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg glass glass-hover hover:glow-primary transition-all" title="Frontend repo">
+                        <Github className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {project.links?.githubBack && (
+                      <a href={project.links.githubBack} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg glass glass-hover hover:glow-primary transition-all" title="Backend repo">
+                        <Github className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
                       </a>
                     )}
                     {(project.links?.ios || project.links?.android) && (
