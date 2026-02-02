@@ -10,7 +10,7 @@ const Education = () => {
     {
       icon: GraduationCap,
       title: "Master's in Business Informatics",
-      institution: "Armenian State University of Economics (ASUE)",
+      institution: "Armenian State University of Economics",
       period: "2025 – Present",
       type: "Academic",
     },

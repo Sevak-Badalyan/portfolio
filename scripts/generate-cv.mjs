@@ -485,7 +485,7 @@ const html = `<!DOCTYPE html>
         <div class="section-title">Education</div>
         <div class="edu-item">
           <div class="edu-title">Master's in Business Informatics</div>
-          <div class="edu-inst">Armenian State University of Economics (ASUE)</div>
+          <div class="edu-inst">Armenian State University of Economics</div>
           <div class="edu-period">2025 – Present</div>
         </div>
         <div class="edu-item">
