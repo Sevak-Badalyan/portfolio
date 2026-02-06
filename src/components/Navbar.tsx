@@ -51,7 +51,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/Sevak(CV).pdf"
+              href="/SEVAK-BADALYAN(CV).pdf"
               download="Sevak_Badalyan_CV.pdf"
               className="px-4 py-2 border border-primary text-primary text-sm rounded font-mono hover:bg-primary/10 transition-colors"
             >
@@ -89,7 +89,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="/Sevak(CV).pdf"
+                href="/SEVAK-BADALYAN(CV).pdf"
                 download="Sevak_Badalyan_CV.pdf"
                 className="w-fit px-4 py-2 border border-primary text-primary text-sm rounded font-mono hover:bg-primary/10 transition-colors"
               >

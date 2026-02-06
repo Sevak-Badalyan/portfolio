@@ -38,6 +38,24 @@ const Projects = () => {
       },
     },
     {
+      title: "PowerTrade",
+      subtitle: "Energy Trading & Supply Platform",
+      description:
+        "Backend infrastructure for a specialized energy trading platform enabling businesses to secure reliable and affordable electricity. Manages complex energy data, automated billing notifications, and real-time market transparency for industrial consumers.",
+      highlights: [
+        "Energy data management APIs with Node.js & TypeScript",
+        "Real-time market pricing via Socket.io",
+        "Automated billing with SendGrid & Twilio",
+        "Secure JWT & RBAC authentication",
+        "Dual-database: MongoDB + Supabase (PostgreSQL)",
+        "Document management with Multer & Handlebars",
+      ],
+      tech: ["Node.js", "TypeScript", "MongoDB", "Supabase", "Socket.io", "SendGrid", "JWT"],
+      type: "Professional",
+      company: null,
+      links: { live: "https://powertrade.am/" },
+    },
+    {
       title: "Souqira",
       subtitle: "Business Marketplace Platform",
       description:
@@ -70,24 +88,6 @@ const Projects = () => {
       type: "Professional",
       company: null,
       links: { live: "https://www.ballertube.com/" },
-    },
-    {
-      title: "PowerTrade",
-      subtitle: "Energy Trading & Supply Platform",
-      description:
-        "Backend infrastructure for a specialized energy trading platform enabling businesses to secure reliable and affordable electricity. Manages complex energy data, automated billing notifications, and real-time market transparency for industrial consumers.",
-      highlights: [
-        "Energy data management APIs with Node.js & TypeScript",
-        "Real-time market pricing via Socket.io",
-        "Automated billing with SendGrid & Twilio",
-        "Secure JWT & RBAC authentication",
-        "Dual-database: MongoDB + Supabase (PostgreSQL)",
-        "Document management with Multer & Handlebars",
-      ],
-      tech: ["Node.js", "TypeScript", "MongoDB", "Supabase", "Socket.io", "SendGrid", "JWT"],
-      type: "Professional",
-      company: null,
-      links: { live: "https://powertrade.am/" },
     },
     {
       title: "Social Network",
