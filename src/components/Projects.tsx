@@ -90,6 +90,23 @@ const Projects = () => {
       links: { live: "https://www.ballertube.com/" },
     },
     {
+      title: "Interview Assistant AI",
+      subtitle: "Analytics Integration (PostHog)",
+      description:
+        "Integrated PostHog analytics into a real-time AI interview coaching platform — handling speech-to-text via WebSockets and AI-generated guidance via Groq/OpenAI. Built the entire product analytics pipeline from scratch within the web and Node.js environment.",
+      highlights: [
+        "End-to-end PostHog setup & deployment",
+        "Custom events: AI model latency & subscription limit hits",
+        "User onboarding flow & activation form tracking",
+        "Interview completion rate instrumentation",
+        "Data reliability validation across all app states",
+      ],
+      tech: ["JavaScript", "Node.js", "PostHog", "WebSockets", "Deepgram", "Groq"],
+      type: "Freelance",
+      company: null,
+      links: { live: "https://interview-assistant-ai.com/" },
+    },
+    {
       title: "Social Network",
       subtitle: "Full-Stack Social Application",
       description:
