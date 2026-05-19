@@ -17,6 +17,24 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "AI Wellness Platform",
+      subtitle: "Jungian-Psychology Personal-Growth Platform",
+      description:
+        "A personal-growth platform delivering AI dream analysis, life-event journaling, and emotional insights. Led the backend microservice architecture, authentication/SSO service, and the internal admin console used to configure the AI pipeline — across a TypeScript NX monorepo spanning 9 Fastify services, a React admin web app, and a React Native (Expo) mobile client.",
+      highlights: [
+        "Fastify 5 microservice backend (9 services, NX/pnpm monorepo)",
+        "API-gateway reverse-proxy as the single client entry point",
+        "BetterAuth auth service with Google/Apple SSO & JWT",
+        "AI engine: LLM completions, agent resolver & SSE streaming",
+        "React 19 admin console for the AI configuration layer",
+        "i18n (EN/FR/DE/RU) across mobile & admin web",
+      ],
+      tech: ["TypeScript", "Fastify", "PostgreSQL", "Drizzle", "Redis", "React 19", "React Native", "Docker"],
+      type: "Freelance",
+      company: null,
+      links: {},
+    },
+    {
       title: "BeautyOS",
       subtitle: "Salon & Beauty Business Management Platform",
       description:
@@ -102,7 +120,7 @@ const Projects = () => {
         "Data reliability validation across all app states",
       ],
       tech: ["JavaScript", "Node.js", "PostHog", "WebSockets", "Deepgram", "Groq"],
-      type: "Freelance",
+      type: "Professional",
       company: null,
       links: { live: "https://interview-assistant-ai.com/" },
     },
