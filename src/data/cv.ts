@@ -3,12 +3,12 @@ import { Terminal, Sparkles, Zap, Users, GraduationCap, Code, Languages, Mail, G
 export const cvData = {
     personalInfo: {
         name: "Sevak Badalyan",
-        title: "Node.js Developer",
+        title: "Software Engineer",
         location: "Yerevan, Armenia",
         email: "sevak.badalyan.01@gmail.com",
         linkedin: "https://www.linkedin.com/in/sevak-badalyan-4045032b0/",
         github: "https://github.com/Sevak-Badalyan",
-        summary: "Passionate Node.js developer with hands-on experience designing and building scalable backend systems. Expertise spans JavaScript, TypeScript, Express.js, NestJS, and databases like PostgreSQL and MongoDB. Skilled in microservices architecture, real-time applications with Socket.io, and clean code practices using MVC architecture.",
+        summary: "Software engineer with a backend focus and full-stack range — building scalable systems from Fastify/Express microservices and PostgreSQL/MongoDB data layers to React and React Native clients and AI/LLM integrations. Comfortable owning features end to end and picking up new languages and tools quickly as projects demand.",
     },
     highlights: [
         { icon: Terminal, label: "Backend Systems", desc: "Scalable & secure" },
@@ -67,16 +67,28 @@ export const cvData = {
                 title: "Frameworks",
                 skills: [
                     { name: "Express.js", level: 95 },
+                    { name: "Fastify", level: 85 },
                     { name: "NestJS", level: 75 },
-                    { name: "React.js", level: 70 },
+                    { name: "React", level: 75 },
+                    { name: "React Native", level: 70 },
                 ],
             },
             {
                 title: "Databases",
                 skills: [
-                    { name: "MongoDB", level: 90 },
                     { name: "PostgreSQL", level: 85 },
+                    { name: "MongoDB", level: 90 },
                     { name: "Redis", level: 70 },
+                    { name: "Drizzle ORM", level: 75 },
+                ],
+            },
+            {
+                title: "AI Engineering",
+                skills: [
+                    { name: "LLM Integration", level: 80 },
+                    { name: "OpenAI / Anthropic APIs", level: 80 },
+                    { name: "Prompt Engineering", level: 75 },
+                    { name: "SSE Streaming", level: 75 },
                 ],
             },
             {
@@ -99,10 +111,10 @@ export const cvData = {
     },
     projects: [
         {
-            title: "AI Wellness Platform",
-            subtitle: "Jungian-Psychology Personal-Growth Platform",
+            title: "UnderSelf",
+            subtitle: "AI-Powered Personal Growth Platform",
             description:
-                "A personal-growth platform delivering AI dream analysis, life-event journaling, and emotional insights. Led the backend microservice architecture, authentication/SSO service, and the internal admin console used to configure the AI pipeline — across a TypeScript NX monorepo spanning 9 Fastify services, a React admin web app, and a React Native (Expo) mobile client.",
+                "A Jungian-psychology personal-growth product (underself.io) delivering AI dream analysis, life-event journaling, and emotional insights across a mobile app, marketing web, and internal admin console. Led the backend microservice architecture, authentication/SSO service, and the admin console used to configure the AI pipeline — across a TypeScript NX monorepo spanning Fastify services, a React admin web app, and a React Native (Expo) mobile client.",
             highlights: [
                 "Fastify 5 microservice backend (9 services, NX/pnpm monorepo)",
                 "API-gateway reverse-proxy as the single client entry point",
@@ -113,7 +125,10 @@ export const cvData = {
             ],
             tech: ["TypeScript", "Fastify", "PostgreSQL", "Drizzle", "Redis", "React 19", "React Native", "Docker"],
             type: "Freelance",
-            links: {},
+            links: {
+                ios: "https://apps.apple.com/am/app/underself/id6775254246",
+                android: "https://play.google.com/store/apps/details?id=io.underself.app",
+            },
         },
         {
             title: "BeautyOS",

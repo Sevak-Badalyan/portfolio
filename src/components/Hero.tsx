@@ -43,10 +43,10 @@ const TypeWriter = ({ texts, speed = 100 }: { texts: string[]; speed?: number })
 
 const Hero = () => {
   const roles = [
-    "Backend Developer",
-    "Node.js Engineer", 
-    "API Architect",
-    "Problem Solver"
+    "Software Engineer",
+    "Backend Engineer",
+    "Full-Stack Developer",
+    "AI Integrations"
   ];
 
   return (

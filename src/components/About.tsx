@@ -36,9 +36,9 @@ const About = () => {
             <div className="md:col-span-3 space-y-6">
               <p className="text-muted-foreground leading-relaxed text-lg">
                 I'm a passionate <span className="text-primary font-medium">Node.js developer</span> with 
-                hands-on experience designing and building scalable backend systems. Currently working at <span className="text-foreground font-medium">Iguan Systems</span> and 
-                taking on freelance projects like <span className="text-foreground font-medium">BeautyOS</span>, 
-                where I architect complex microservices and business applications from the ground up.
+                hands-on experience designing and building scalable backend systems. Currently working at <span className="text-foreground font-medium">Iguan Systems</span> and
+                taking on freelance projects like <span className="text-foreground font-medium">UnderSelf</span> — an AI-powered personal-growth app — and <span className="text-foreground font-medium">BeautyOS</span>,
+                where I architect complex microservices and AI-driven applications from the ground up.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">

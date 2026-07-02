@@ -18,16 +18,28 @@ const Skills = () => {
       title: "Frameworks",
       skills: [
         { name: "Express.js", level: 95 },
+        { name: "Fastify", level: 85 },
         { name: "NestJS", level: 75 },
-        { name: "React.js", level: 70 },
+        { name: "React", level: 75 },
+        { name: "React Native", level: 70 },
       ],
     },
     {
       title: "Databases",
       skills: [
-        { name: "MongoDB", level: 90 },
         { name: "PostgreSQL", level: 85 },
+        { name: "MongoDB", level: 90 },
         { name: "Redis", level: 70 },
+        { name: "Drizzle ORM", level: 75 },
+      ],
+    },
+    {
+      title: "AI Engineering",
+      skills: [
+        { name: "LLM Integration", level: 80 },
+        { name: "OpenAI / Anthropic APIs", level: 80 },
+        { name: "Prompt Engineering", level: 75 },
+        { name: "SSE Streaming", level: 75 },
       ],
     },
     {
